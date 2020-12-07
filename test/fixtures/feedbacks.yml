@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  application_id: 1
+  interaction: 1
+  ease: 1
+  communication: 1
+
+two:
+  application_id: 1
+  interaction: 1
+  ease: 1
+  communication: 1
