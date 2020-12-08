@@ -1,0 +1,20 @@
+<h2>How was your experience?</h2>
+
+<%= form_with model: @feedback, local: true do |f| %>
+  <%= f.label :interaction %>
+  <br>
+  <%= f.text_field :interaction %>
+  <br>
+  <%= f.label :ease %>
+  <br>
+  <%= f.text_field :ease %>
+  <br>
+  <br>
+  <%= f.label :interaction %>
+  <br>
+  <%= f.text_field :interaction %>
+  <br>
+  <br>
+  <%= f.submit 'Share Feedback' %>
+
+  <% end %>
