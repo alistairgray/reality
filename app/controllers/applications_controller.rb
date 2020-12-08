@@ -28,5 +28,6 @@ class ApplicationsController < ApplicationController
 
   def application_params
     params.require(:application).permit(:user_id, :house_id)
+  end
 
 end

@@ -1,0 +1,9 @@
+<h2 class="market">Marketplace</h2>
+
+<ul>
+  <% @properties.each do |p| %>
+  <li>
+    <%= link_to p.address, property_path(p.id) %>
+  </li>
+  <% end %>
+</ul>

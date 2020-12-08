@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :check_if_logged_in, only: [:profile, :edit, :update]
+
   def new
     @user = User.new
   end # new
@@ -17,6 +19,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find params[:id]
+  end
+
+  def profile
+
   end
 
   def edit
@@ -32,5 +39,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end # user_params
-  
+
 end

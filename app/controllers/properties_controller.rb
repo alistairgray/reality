@@ -1,4 +1,4 @@
-class PropertysController < ApplicationController
+class PropertiesController < ApplicationController
   def new
   end
 
@@ -6,6 +6,7 @@ class PropertysController < ApplicationController
   end
 
   def index
+    @properties = Property.all
   end
 
   def show
