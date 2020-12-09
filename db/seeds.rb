@@ -21,27 +21,13 @@ puts "created #{User.count} users"
 print "Creating Properties..."
 Property.destroy_all
 
-p1 = Property.create! address: "123 Fourth Street", live: 1, bedrooms: 3, status: 0, user_id: u1.id
-p2 = Property.create! address: "567 Eighth Street", live: 1, bedrooms: 2, status: 0, user_id: u3.id
-p3 = Property.create! address: "910 Eleven Street", live: 1, bedrooms: 5, status: 0, user_id: u3.id
+p1 = Property.create! address: "123 Fourth Street", live: 1, bedrooms: 3, status: 0, user_id: u1.id, image: "/assets/property_1"
+p2 = Property.create! address: "567 Eighth Street", live: 1, bedrooms: 2, status: 0, user_id: u3.id, image: "/assets/property_2"
+p3 = Property.create! address: "910 Eleven Street", live: 1, bedrooms: 5, status: 0, user_id: u3.id, image: "/assets/property_3"
 
 # Setup Confirmations -------------------------------------------------#
 puts "created #{Property.count} properties"
 puts "first property belongs to #{Property.first.owner.name}"
-
-#----------------------------------------------------------------------#
-########################################################################
-# APPPLICATIONS
-########################################################################
-print "Creating applications..."
-Application.destroy_all
-
-a1 = Application.create! user_id: u2.id
-a2 = Application.create! user_id: u4.id
-a3 = Application.create! user_id: u6.id
-
-# Setup Confirmations -------------------------------------------------#
-puts "created #{Application.count} applications"
 
 #----------------------------------------------------------------------#
 ########################################################################
@@ -50,9 +36,24 @@ puts "created #{Application.count} applications"
 print "Creating feedbacks..."
 Feedback.destroy_all
 
-f1 = Feedback.create!
+f1 = Feedback.create! ease: 0
+f2 = Feedback.create! ease: 1
 
 # Setup Confirmations -------------------------------------------------#
 puts "created #{Feedback.count} feedbacks"
+
+#----------------------------------------------------------------------#
+########################################################################
+# APPPLICATIONS
+########################################################################
+print "Creating applications..."
+Application.destroy_all
+
+a1 = Application.create! user_id: u2.id, applicant_feedback_id: f1.id, owner_feedback_id: f2.id
+a2 = Application.create! user_id: u4.id
+a3 = Application.create! user_id: u6.id
+
+# Setup Confirmations -------------------------------------------------#
+puts "created #{Application.count} applications"
 
 #----------------------------------------------------------------------#

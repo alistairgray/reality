@@ -1,2 +1,18 @@
-<h1>Applications#new</h1>
-<p>Find me in app/views/applications/new.html.erb</p>
+<h3>Create a New Application</h3>
+<!-- Needs to contain the following: -->
+<!-- Property Address which could be given as params after clicking apply-->
+<!-- other data relating to the property, such as the ID could be used to get the owner-->
+<!-- there could also be params data from the current user -->
+<!-- form_with -->
+
+<%= form_with model: @application, local: true do |f| %>
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name, value: @current_user.name %>
+  <br>
+    <%= f.label :address %>
+    <br>
+    <%= f.text_field :address, value: @address %>
+
+<%= f.submit 'Send Application' %>
+<% end %>

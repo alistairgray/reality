@@ -1,2 +1,17 @@
-<h1>Applications#show</h1>
-<p>Find me in app/views/applications/show.html.erb</p>
+<h1>Application for:<%=@application.property.address%></h1>
+
+<p>
+  <strong>Applicant Name:</strong>
+  <%= @application.applicant.name %>
+</p>
+<p>
+  <strong>Applicant Feedback:</strong>
+</p>
+<p>
+  <strong>Owner Name:</strong>
+  <%= @application.property.owner.name %>
+</p>
+<p>
+  <strong>Owner Feedback:</strong>
+
+</p>

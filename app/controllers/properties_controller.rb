@@ -10,6 +10,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @property = Property.find params[:id]
+    @status = ['Just Posted', 'Holding Inspections', 'Seeking Applications', 'Pending Application', 'Leased'] # status options
   end
 
   def edit

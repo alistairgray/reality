@@ -1,2 +1,46 @@
-<h1>Propertys#show</h1>
-<p>Find me in app/views/propertys/show.html.erb</p>
+<h3>Details for: <%= @property.address%></h3>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpKKvUvI8IOkHtDoaIHY45KaIbUPs0Uaw&callback=initMap&libraries=&v=weekly"defer></script>
+<style>
+  #map {
+    width: 50vw;
+    height: 50vw;
+  }
+</style>
+<script>
+
+const property = {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>};
+
+function initMap(){
+  const map = new google.maps.Map(
+    document.getElementById("map"),
+    {
+      zoom: 16,
+      center: property,
+    }
+  );
+
+  new google.maps.Marker({
+    position: property,
+    map,
+    title: "Property Location",
+  });
+}
+</script>
+
+<p>
+  <strong>Number of bedrooms:</strong>
+  <%= @property.bedrooms %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @status[@property.status] %>
+</p>
+<br>
+<hr>
+<%=image_tag @property.image %>
+
+<div id="map">
+
+</div>
+
+<%= link_to 'Apply', applications_path(property_id: @property.id), method: 'post' %> 

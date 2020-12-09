@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :users
   get '/profile' => 'users#profile'
-  resources :applications
   resources :properties
+  resources :applications
   resources :feedbacks
 
 end
