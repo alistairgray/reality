@@ -4,19 +4,23 @@
   <strong>Applicant Name:</strong>
   <%= @application.applicant.name %>
 </p>
-<p>
+<p class="feedback">
   <strong>Applicant Feedback:</strong>
-  <%= @application.applicant_feedback.ease %>
+  <%= @application.applicant_feedback %>
 </p>
 <p>
   <strong>Owner Name:</strong>
   <%= @application.property.owner.name %>
 </p>
-<p>
+<p class="feedback">
   <strong>Owner Feedback:</strong>
-  <%= @application.owner_feedback.ease %>
+  <%= @application.owner_feedback %>
 </p>
 <p>
   <strong>Application Decision:</strong>
-  <%= @status[@application.decision_id] %>
+  <%= @application.status %>
 </p>
+
+<%if @current_user.user_type == 'owner'%>
+  <%= link_to 'Update Application', edit_application_path(@application.id) %>
+<% end %>

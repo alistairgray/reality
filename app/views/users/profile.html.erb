@@ -11,27 +11,29 @@
 </p>
 <br>
 <p><strong>Pending Applications:</strong></p>
-<% @applications.each do |app| %>
-  <% if app.user_id == @current_user.id %>
 <ul>
+<% if @current_user.user_type == 'owner' %>
+  <% @current_user.owner_applications.each do |owner_app| %>
+    <li>
+      <%= link_to owner_app.property.address, application_path(owner_app.id) %>
+    </li>
+<% @current_user.applications.each do |app| %>
     <li>
       <%= link_to app.property.address, application_path(app.id) %>
     </li>
-
+<% end %>
+<% end %>
+<% end %>
 </ul>
-<% end %>
-<% end %>
-<ul>
+
   <strong>My Properties:</strong>
-
   <% if @current_user.user_type == 'owner'%>
-    <% @properties.each do |p| %>
-      <% if p.user_id == @current_user.id %>
-  <li>
-      <%= p.address %>
-  </li>
+    <ul>
+    <% @current_user.properties.each do |p| %>
+      <li>
+          <%= link_to p.address, property_path(p.id)%>
+      </li>
 
-</ul>
-<% end %>
-<% end %>
-<% end %>
+    <% end %>
+    </ul>
+  <% end %>

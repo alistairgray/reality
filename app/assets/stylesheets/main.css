@@ -66,3 +66,7 @@ img {
 div#map {
   text-align: center;
 }
+
+p.feedback {
+  visibility: hidden;
+}

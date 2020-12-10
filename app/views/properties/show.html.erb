@@ -43,4 +43,7 @@ function initMap(){
 
 </div>
 
-<%= link_to 'Apply', applications_path(property_id: @property.id), method: 'post' %> 
+<% if @current_user.id == @property.user_id %>
+<% else %>
+<%= link_to 'Apply', applications_path(property_id: @property.id), method: 'post' %>
+<% end %>

@@ -12,18 +12,27 @@ class ApplicationsController < ApplicationController
   end
 
   def index
-    @application = Application.all
+    @applications = Application.all
+    @properties = Property.all
+
   end
 
   def show
     @application = Application.find params[:id]
-    @status = ['Pending', 'Approved', 'Rejected']
+    # raise 'hell'
   end
 
   def edit
+    @application = Application.find params[:id]
   end
 
   def update
+    application = Application.find params[:id]
+
+    application.update status: params[:status]
+    application.save
+    raise 'hell'
+    redirect_to application_path(application.id)
   end
 
   def destroy

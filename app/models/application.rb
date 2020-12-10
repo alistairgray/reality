@@ -5,6 +5,7 @@ class Application < ApplicationRecord
   belongs_to :owner_feedback, class_name: 'Feedback', optional: true
   belongs_to :applicant, class_name: 'User', foreign_key: 'user_id'
   belongs_to :property, optional: true
-  
+  enum status: [:pending, :approved, :rejected]
+  enum ease: [:slowest, :slow, :normal, :fast, :fastest]
 
 end

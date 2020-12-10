@@ -49,9 +49,9 @@ puts "created #{Feedback.count} feedbacks"
 print "Creating applications..."
 Application.destroy_all
 
-a1 = Application.create! user_id: u2.id, applicant_feedback_id: f1.id, owner_feedback_id: f2.id, property_id: p1.id, decision_id: 0
-a2 = Application.create! user_id: u4.id
-a3 = Application.create! user_id: u6.id
+a1 = Application.create! user_id: u2.id, applicant_feedback_id: f1.id, owner_feedback_id: f2.id, property_id: p1.id, status: :pending
+a2 = Application.create! user_id: u4.id, property_id: p1.id, status: :approved
+a3 = Application.create! user_id: u6.id, property_id: p2.id
 
 # Setup Confirmations -------------------------------------------------#
 puts "created #{Application.count} applications"

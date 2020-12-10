@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/profile' => 'users#profile'
   resources :properties
   resources :applications
+  post 'applications/:id' => 'applications#edit'
   resources :feedbacks
 
 end
