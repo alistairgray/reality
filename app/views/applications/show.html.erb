@@ -32,10 +32,20 @@
 <% end %>
 
 <% unless @application.pending? %>
+<h2 class="market">Please Give Feedback</h2>
 <%= form_with model: Feedback.new, local: true do |f| %>
-  <%= f.label :ease %>
+  <%= f.label :ease, 'How was the overall experience?' %>
   <br>
   <%= f.select :ease, Feedback.eases.keys, :prompt => 'Select One' %>
+  <br>
+  <%= f.label :communication, 'How quickly did you hear back from the other party?' %>
+  <br>
+  <%= f.select :communication, Feedback.communications.keys, :prompt => 'Select One' %>
+  <br>
+  <%= f.label :interaction, 'How were they to deal with?' %>
+  <br>
+  <%= f.select :interaction, Feedback.interactions.keys, :prompt => 'Select One' %>
+  <br>
   <br>
   <%= f.hidden_field :application_id, value: @application.id %>
   <%= f.submit 'Send Feedback' %>

@@ -9,13 +9,17 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <header>
-    <h1>Reality</h1>
+    <h1 id="title">Reality</h1>
   </header>
   <body>
+    <h2 class="market">
+    <% if @current_user.present? %>
+    Welcome, <%= @current_user.name %>
+    <% end %>
+    </h2>
     <nav>
       <%= link_to 'Home', root_path %>
       <% if @current_user.present? %>
-      Welcome, <%= @current_user.name %>
         <%= link_to 'Logout', login_path, method: 'delete' %>
         <%= link_to 'My Profile', profile_path %>
         <%= link_to 'My Applications', applications_path %>

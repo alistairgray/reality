@@ -10,7 +10,7 @@
 <% end %>
 
 <%= form_with model: @user, local: true do |f| %>
-  <%= f.label :user_type, 'Owner or Renter?'%>
+  <%= f.label :user_type, 'owner or applicant?'%>
   <br>
   <%= f.text_field :user_type %>
   <br>

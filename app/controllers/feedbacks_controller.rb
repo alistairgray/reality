@@ -7,7 +7,7 @@ class FeedbacksController < ApplicationController
     # raise 'hell'
     feedback = Feedback.create(
       application_id: params[:feedback][:application_id],
-      ease: params[:feedback][:ease]
+      ease: params[:feedback][:ease], communication: params[:feedback][:communication], interaction: params[:feedback][:interaction]
     )
     # now that we have saved the feedback we have to save its ID to the appropriate field in the corresponding application: applicant_feedback_id or owner_feedback_id
     application = Application.find params[:feedback][:application_id]
