@@ -12,10 +12,12 @@ class ApplicationsController < ApplicationController
   end
 
   def index
+    @application = Application.all
   end
 
   def show
     @application = Application.find params[:id]
+    @status = ['Pending', 'Approved', 'Rejected']
   end
 
   def edit

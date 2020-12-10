@@ -1,4 +1,4 @@
-<h1>Application for:<%=@application.property.address%></h1>
+<h2 class="application">Application for:<%=@application.property.address%></h2>
 
 <p>
   <strong>Applicant Name:</strong>
@@ -6,6 +6,7 @@
 </p>
 <p>
   <strong>Applicant Feedback:</strong>
+  <%= @application.applicant_feedback.ease %>
 </p>
 <p>
   <strong>Owner Name:</strong>
@@ -13,5 +14,9 @@
 </p>
 <p>
   <strong>Owner Feedback:</strong>
-
+  <%= @application.owner_feedback.ease %>
+</p>
+<p>
+  <strong>Application Decision:</strong>
+  <%= @status[@application.decision_id] %>
 </p>

@@ -42,7 +42,7 @@ h1 {
   font-size: 50pt;
 }
 
-h2.market {
+h2.market, h2.application {
   color: #FB8213;
   text-shadow: none;
 }

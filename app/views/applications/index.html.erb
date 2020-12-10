@@ -1,2 +1,11 @@
-<h1>Applications#index</h1>
-<p>Find me in app/views/applications/index.html.erb</p>
+<h3>Your Applications</h3>
+
+<ul>
+  <% @application.each do |app| %>
+      <% if app.user_id == @current_user.id %>
+      <li>
+        <%= link_to app.property.address, application_path(app.id) %>
+      </li>
+      <% end %>
+    <% end %>
+</ul>

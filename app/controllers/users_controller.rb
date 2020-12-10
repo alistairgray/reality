@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
 
   def profile
-
+    @properties = Property.all
+    @applications = Application.all
   end
 
   def edit

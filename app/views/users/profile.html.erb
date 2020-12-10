@@ -10,6 +10,28 @@
   <%= @current_user.user_type%>
 </p>
 <br>
-<p>
-  <strong>Pending Applications:</strong>
-</p>
+<p><strong>Pending Applications:</strong></p>
+<% @applications.each do |app| %>
+  <% if app.user_id == @current_user.id %>
+<ul>
+    <li>
+      <%= link_to app.property.address, application_path(app.id) %>
+    </li>
+
+</ul>
+<% end %>
+<% end %>
+<ul>
+  <strong>My Properties:</strong>
+
+  <% if @current_user.user_type == 'owner'%>
+    <% @properties.each do |p| %>
+      <% if p.user_id == @current_user.id %>
+  <li>
+      <%= p.address %>
+  </li>
+
+</ul>
+<% end %>
+<% end %>
+<% end %>
