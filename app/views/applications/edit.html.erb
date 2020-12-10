@@ -27,7 +27,7 @@
   <%= form_with model: @application, local: true do |f| %>
     <%= f.label :status %>
     <br>
-    <%= f.select :status, [pending, :approved, :rejected], :prompt => 'Select One' %>
+    <%= f.select :status, Application.statuses.keys, :prompt => 'Select One' %>
     <br>
     <%= f.submit 'Update Application' %>
   <% end %>

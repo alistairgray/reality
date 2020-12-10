@@ -5,11 +5,11 @@
     <li>
       <%= link_to owner_app.property.address, application_path(owner_app.id) %>
     </li>
+  <% end %>
+<% end %>
 <% @current_user.applications.each do |app| %>
     <li>
       <%= link_to app.property.address, application_path(app.id) %>
     </li>
-<% end %>
-<% end %>
 <% end %>
 </ul>

@@ -68,5 +68,5 @@ div#map {
 }
 
 p.feedback {
-  visibility: hidden;
+  /* visibility: hidden; */
 }

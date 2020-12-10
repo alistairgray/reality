@@ -29,9 +29,8 @@ class ApplicationsController < ApplicationController
   def update
     application = Application.find params[:id]
 
-    application.update status: params[:status]
+    application.update status: params[:application][:status]
     application.save
-    raise 'hell'
     redirect_to application_path(application.id)
   end
 

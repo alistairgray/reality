@@ -4,9 +4,21 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    feedback = Feedback.create feedback_params
-    # Needs a check for user_type
-  end
+    # raise 'hell'
+    feedback = Feedback.create(
+      application_id: params[:feedback][:application_id],
+      ease: params[:feedback][:ease]
+    )
+    # now that we have saved the feedback we have to save its ID to the appropriate field in the corresponding application: applicant_feedback_id or owner_feedback_id
+    application = Application.find params[:feedback][:application_id]
+    if @current_user.user_type == 'owner'
+      application.update applicant_feedback_id: feedback.id
+    else
+      # if not the owner, it must be the applicant
+      application.update owner_feedback_id: feedback.id
+    end # user_type conditional
+    redirect_to application_path(application.id)
+  end # create
 
   def index
   end
